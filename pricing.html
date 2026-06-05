@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Amplified</title>
+<meta name="description" content="Transparent, flexible pricing for Amplified Kreative's creative services. Monthly retainers from $499 or custom one-off project quotes.">
+<meta property="og:title" content="Pricing — Amplified Kreative">
+<meta property="og:description" content="Transparent, flexible pricing for Amplified Kreative's creative services. Monthly retainers from $499 or custom one-off project quotes.">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ====== PRICING PAGE ====== */
+.pricing-hero h1{font-size:clamp(52px,9vw,128px);font-weight:800;line-height:.88;letter-spacing:-.03em}
+.pricing-hero h1 em{font-style:normal;color:var(--magenta)}
+
+.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.5vw,28px);align-items:start}
+@media(max-width:860px){.plan-grid{grid-template-columns:1fr}}
+
+.plan{background:var(--paper);border:1.5px solid var(--line);border-radius:24px;padding:clamp(28px,3vw,44px);display:flex;flex-direction:column;gap:0;position:relative;transition:.25s}
+.plan--featured{background:var(--ink);color:#fff;border-color:var(--ink)}
+.plan--featured .plan__price{color:#fff}
+.plan--featured .plan__desc{color:rgba(255,255,255,.62)}
+.plan--featured .plan__feat li{color:rgba(255,255,255,.8)}
+.plan--featured .plan__feat li::before{color:var(--yellow)}
+.plan__badge{position:absolute;top:20px;right:20px;background:var(--magenta);color:#fff;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:100px}
+.plan__label{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;display:block}
+.plan--featured .plan__label{color:rgba(255,255,255,.5)}
+.plan__name{font-family:var(--display);font-weight:800;font-size:clamp(24px,2.6vw,34px);line-height:1;letter-spacing:-.02em}
+.plan__price{font-family:var(--display);font-weight:800;font-size:clamp(42px,5vw,68px);line-height:1;letter-spacing:-.03em;margin-top:20px;color:var(--ink)}
+.plan__price sup{font-size:.45em;font-weight:700;vertical-align:super}
+.plan__price sub{font-size:.32em;font-weight:500;color:var(--muted);letter-spacing:0}
+.plan--featured .plan__price sub{color:rgba(255,255,255,.5)}
+.plan__desc{color:var(--muted);font-size:15px;line-height:1.6;margin-top:14px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.plan--featured .plan__desc{border-color:rgba(255,255,255,.14)}
+.plan__feat{list-style:none;display:flex;flex-direction:column;gap:10px;margin:22px 0 28px}
+.plan__feat li{font-size:15px;padding-left:22px;position:relative;line-height:1.4}
+.plan__feat li::before{content:"✓";position:absolute;left:0;color:var(--magenta);font-weight:700}
+.plan .btn{width:100%;justify-content:center}
+
+.custom-band{background:var(--paper-2);border-radius:24px;padding:clamp(32px,4vw,60px);margin-top:clamp(28px,4vw,48px)}
+.custom-band h3{font-size:clamp(28px,3.5vw,48px);font-weight:800;line-height:1;letter-spacing:-.02em;max-width:22ch}
+.custom-band .row{flex-wrap:wrap;gap:14px;margin-top:28px}
+.custom-range{font-family:var(--display);font-weight:800;font-size:clamp(48px,6vw,80px);line-height:.9;letter-spacing:-.03em;color:var(--magenta)}
+
+.compare{width:100%;border-collapse:collapse;margin-top:36px;font-size:15px}
+.compare th,.compare td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--line)}
+.compare thead th{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--paper-2);font-weight:700}
+.compare thead th:first-child{border-radius:12px 0 0 0}
+.compare thead th:last-child{border-radius:0 12px 0 0}
+.compare td:not(:first-child){text-align:center}
+.compare .check{color:var(--magenta);font-weight:700;font-size:17px}
+.compare .dash{color:var(--muted)}
+</style>
+</head>
+<body data-page="pricing">
+
+<section class="phead" data-screen-label="Pricing / Hero">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Home</a><span class="sep">/</span><span>Pricing</span></div>
+    <div class="pricing-hero">
+      <span class="eyebrow">Transparent pricing</span>
+      <h1 style="margin-top:18px">Clear rates.<br>No <em>surprises.</em></h1>
+      <p class="lead" style="margin-top:24px;max-width:52ch">Pick a monthly retainer that fits your growth stage, or get a custom quote for a one-off project. All plans include direct access to our full in-house team.</p>
+    </div>
+  </div>
+</section>
+
+<!-- plans -->
+<section class="section">
+  <div class="wrap">
+    <div class="plan-grid reveal">
+
+      <!-- Basic -->
+      <div class="plan">
+        <span class="plan__label">Subscription</span>
+        <div class="plan__name">Basic</div>
+        <div class="plan__price"><sup>$</sup>499<sub>/mo</sub></div>
+        <p class="plan__desc">Perfect for growing businesses that need consistent, high-quality creative support without the overhead of an in-house team.</p>
+        <ul class="plan__feat">
+          <li>Unlimited design requests</li>
+          <li>Unlimited revisions</li>
+          <li>Branding & graphic design</li>
+          <li>Access to premium stock images</li>
+          <li>Brand guidelines</li>
+          <li>Dedicated account manager</li>
+        </ul>
+        <a href="contact.html" class="btn btn--ghost">Get started <span class="arr">&#8599;</span></a>
+      </div>
+
+      <!-- Web Design — featured -->
+      <div class="plan plan--featured">
+        <div class="plan__badge">Most Popular</div>
+        <span class="plan__label">Subscription</span>
+        <div class="plan__name">Web Design</div>
+        <div class="plan__price"><sup>$</sup>699<sub>/mo</sub></div>
+        <p class="plan__desc">Everything in Basic, plus full front-end web development, copywriting and ongoing website maintenance.</p>
+        <ul class="plan__feat">
+          <li>Everything in Basic</li>
+          <li>Front-end development</li>
+          <li>Website maintenance & updates</li>
+          <li>Copywriting &amp; content</li>
+          <li>WordPress / Webflow / Wix builds</li>
+          <li>SEO optimisation</li>
+        </ul>
+        <a href="contact.html" class="btn btn--primary">Get started <span class="arr">&#8599;</span></a>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="plan">
+        <span class="plan__label">Subscription</span>
+        <div class="plan__name">Enterprise</div>
+        <div class="plan__price"><sup>$</sup>999<sub>/mo</sub></div>
+        <p class="plan__desc">The full Amplified experience — all creative services, video production, campaigns and staff training in one monthly package.</p>
+        <ul class="plan__feat">
+          <li>Everything in Web Design</li>
+          <li>Video production &amp; editing</li>
+          <li>Campaign strategy &amp; execution</li>
+          <li>Digital advertising &amp; social ads</li>
+          <li>Staff creative training</li>
+          <li>Priority turnaround times</li>
+        </ul>
+        <a href="contact.html" class="btn btn--ghost">Get started <span class="arr">&#8599;</span></a>
+      </div>
+
+    </div>
+
+    <!-- custom band -->
+    <div class="custom-band reveal">
+      <div class="row" style="justify-content:space-between;align-items:center;flex-wrap:wrap;gap:30px">
+        <div>
+          <span class="eyebrow">One-off projects</span>
+          <h3 style="margin-top:12px">Need something specific?<br>We'll quote it precisely.</h3>
+          <p style="color:var(--muted);margin-top:16px;max-width:48ch;font-size:16px">Documentary films, full website builds, brand identity systems, animated ads, photography shoots, printing jobs — priced by scope, not by guesswork.</p>
+          <div class="row" style="margin-top:28px;gap:14px">
+            <a href="contact.html" class="btn btn--primary">Get a custom quote <span class="arr">&#8599;</span></a>
+            <a href="https://calendly.com/amplifiedkreative/30min" target="_blank" rel="noopener" class="btn btn--ghost">Book a free call <span class="arr">&#8599;</span></a>
+          </div>
+        </div>
+        <div style="text-align:right">
+          <div class="custom-range">$699</div>
+          <div style="font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:6px 0">to</div>
+          <div class="custom-range">$9,000</div>
+          <div style="font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:6px">per project</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- comparison table -->
+<section class="section section-paper2">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">Compare plans</span><h2 style="margin-top:18px">What's included<br>in each tier.</h2></div>
+    </div>
+    <div class="reveal" style="overflow-x:auto">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Basic</th>
+            <th>Web Design</th>
+            <th>Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Unlimited design requests</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Unlimited revisions</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Branding &amp; graphic design</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Stock image access</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Brand guidelines</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Front-end web development</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Website maintenance</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Copywriting</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Video production</td><td class="dash">—</td><td class="dash">—</td><td class="check">✓</td></tr>
+          <tr><td>Campaign execution</td><td class="dash">—</td><td class="dash">—</td><td class="check">✓</td></tr>
+          <tr><td>Staff training</td><td class="dash">—</td><td class="dash">—</td><td class="check">✓</td></tr>
+          <tr><td>Digital advertising</td><td class="dash">—</td><td class="dash">—</td><td class="check">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="wrap" style="max-width:760px">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">Common questions</span><h2 style="margin-top:18px">Pricing FAQs.</h2></div>
+    </div>
+    <div class="faq reveal">
+      <div class="faq__item">
+        <button class="faq__q">Can I cancel my subscription at any time?<span class="faq__ico"></span></button>
+        <div class="faq__a"><p>Yes — all monthly plans are rolling with no minimum commitment. Cancel with 30 days' notice and we'll wrap up any active work cleanly.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">What counts as a "request"?<span class="faq__ico"></span></button>
+        <div class="faq__a"><p>Each discrete creative task is one request — a logo concept, a social post set, a brochure layout. Large multi-piece projects (e.g. a full brand identity) are scoped upfront and may count as multiple requests delivered in sequence.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">Do prices include printing or production costs?<span class="faq__ico"></span></button>
+        <div class="faq__a"><p>Design fees cover creative work only. Third-party production costs (print runs, media buys, hosting) are billed at cost with no markup.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">Can I upgrade or downgrade my plan?<span class="faq__ico"></span></button>
+        <div class="faq__a"><p>Absolutely. You can switch tiers at the start of any new billing month. Our team will help ensure a smooth transition with no disruption to ongoing work.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">How does the one-off custom pricing work?<span class="faq__ico"></span></button>
+        <div class="faq__a"><p>We scope the project together, then provide a fixed-price quote with milestone-based payments. No surprise invoices — you'll know the full cost before we begin.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <span class="eyebrow on-dark" style="justify-content:center;color:#fff">Ready to get started?</span>
+      <h2 style="margin-top:20px">Not sure which plan<br>is right for you?</h2>
+      <p>Book a free 30-minute call with our team. We'll understand your goals and recommend the right fit — no pressure.</p>
+      <div class="row">
+        <a href="https://calendly.com/amplifiedkreative/30min" target="_blank" rel="noopener" class="btn btn--ink">Book a free call <span class="arr">&#8599;</span></a>
+        <a href="contact.html" class="btn btn--light">Send a brief</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="site.js"></script>
+</body>
+</html>

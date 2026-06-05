@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work — Amplified Kreative | Portfolio</title>
+<meta name="description" content="Explore Amplified Kreative's portfolio — branding, video production, web design, digital marketing, print and photography for brands across East Africa.">
+<meta property="og:title" content="Work — Amplified Kreative Portfolio">
+<meta property="og:description" content="Branding, video, web, marketing, print and photography for bold brands across East Africa.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/portfolio/branding-left.jpeg">
+<link rel="canonical" href="https://amplifiedkreative.com/portfolio/">
+<link rel="icon" href="assets/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<style>
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.filter{font-family:var(--text);font-weight:600;font-size:14.5px;padding:10px 18px;border-radius:100px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;transition:.16s}
+.filter.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.port{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,30px)}
+.port .work-card{transition:opacity .3s}
+.port .work-card.hide{display:none}
+.port .work-card:nth-child(4n+1),.port .work-card:nth-child(4n+4){grid-column:span 1}
+@media(max-width:680px){.port{grid-template-columns:1fr}}
+.feat{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(24px,4vw,56px);align-items:center;background:var(--ink);color:#fff;border-radius:24px;overflow:hidden;padding:clamp(28px,3.5vw,56px)}
+.feat .ph{min-height:340px;height:100%}
+.feat-img{min-height:340px;height:100%;border-radius:12px;overflow:hidden}
+.feat-img img{width:100%;height:100%;object-fit:cover}
+.feat h3{font-size:clamp(28px,3.6vw,52px);font-weight:800;line-height:1;letter-spacing:-.02em}
+@media(max-width:780px){.feat{grid-template-columns:1fr}}
+.work-img{aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius)}
+.work-img img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.work-card:hover .work-img img{transform:scale(1.04)}
+</style>
+</head>
+<body data-page="work">
+
+<section class="phead" data-screen-label="Work / Hero">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Home</a><span class="sep">/</span><span>Work</span></div>
+    <div class="grid-2" style="align-items:end">
+      <h1>Work that<br>got heard.</h1>
+      <p class="lead">A selection of brands we've helped turn up the volume — across branding, film, web, marketing and more. Real projects, measurable results.</p>
+    </div>
+    <div class="filters" id="filters" style="margin-top:40px"></div>
+  </div>
+</section>
+
+<!-- featured -->
+<section class="section--tight">
+  <div class="wrap">
+    <div class="feat reveal">
+      <div class="feat-img"><img src="assets/portfolio/branding-left.jpeg" alt="Speke Apartments — Brand Identity"></div>
+      <div>
+        <span class="eyebrow on-dark">Featured · Hospitality</span>
+        <h3 style="margin-top:18px">Speke Apartments</h3>
+        <p class="lead" style="color:rgba(255,255,255,.62);margin-top:16px">A full visual identity, signage and collateral system for a flagship hospitality brand — delivered on time, on budget, and with a return on investment that keeps them coming back.</p>
+        <div class="pill-list" style="margin-top:24px">
+          <span class="tag" style="background:var(--magenta);color:#fff">Branding</span>
+          <span class="tag" style="background:var(--ink-3);color:#fff">Print</span>
+          <span class="tag" style="background:var(--ink-3);color:#fff">Photography</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- grid -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="port reveal" id="port"></div>
+  </div>
+</section>
+
+<!-- cta -->
+<section class="section">
+  <div class="wrap">
+    <div class="mini-cta reveal">
+      <div><h3>Your brand could be next on this page.</h3></div>
+      <a href="contact.html" class="btn btn--primary">Start a project <span class="arr">&#8599;</span></a>
+    </div>
+  </div>
+</section>
+
+<script src="site.js"></script>
+<script>
+(function(){
+  var CATS=['All','Branding','Video','Web','Marketing','Audio','Photography','Print'];
+  // [name, description, category, imgSrc, imgAlt]
+  var WORK=[
+    ['Social Media Campaigns','Always-on content across platforms that built consistent brand presence.','Marketing','assets/portfolio/social-media-1.jpeg','Social media campaign graphics'],
+    ['NGO Forum','Publication design and visual identity for an international humanitarian platform.','Branding','assets/portfolio/ngo-forum.jpeg','NGO Forum publication'],
+    ['Humanitarian Platform','Brand identity and graphic design for a leading NGO platform.','Branding','assets/portfolio/humanitarian-platform.jpeg','Humanitarian Platform branding'],
+    ['Vehicle Branding','Full vehicle wrap design and execution for a corporate fleet.','Print','assets/portfolio/main-car.jpeg','Corporate vehicle branding'],
+    ['Legal Framework Report','Typeset and designed publication for policy and legal documentation.','Print','assets/portfolio/legal-framework.jpeg','Legal framework report design'],
+    ['Logo Design Suite','Comprehensive logo systems crafted for multiple brand identities.','Branding','assets/portfolio/logo-1.jpeg','Logo design collection'],
+    ['Embossed Brand Identity','Premium embossed branding materials for a luxury client.','Branding','assets/portfolio/logo-embossed.jpeg','Embossed brand identity'],
+    ['Branded Merchandise','Apparel and merchandise design including sweater mockups.','Print','assets/portfolio/sweater-mockup.jpeg','Branded sweater and merchandise'],
+    ['Social Content Production','Content creation and visual design for social media growth campaigns.','Marketing','assets/portfolio/social-media-2.jpeg','Social media content design'],
+    ['Back Car Branding','Rear vehicle branding and livery design for fleet deployment.','Print','assets/portfolio/back-car.jpeg','Rear vehicle branding'],
+    ['Brand Identity Design','Full-service brand identity including logo, colours and typography.','Branding','assets/portfolio/graphic-design-left.jpeg','Brand identity design'],
+    ['Social Campaigns Vol.3','Multi-format social media content designed for maximum engagement.','Marketing','assets/portfolio/social-media-3.jpeg','Social media campaign vol. 3']
+  ];
+  // filters
+  document.getElementById('filters').innerHTML=CATS.map(function(c,i){
+    return '<button class="filter'+(i===0?' on':'')+'" data-cat="'+c+'">'+c+'</button>';
+  }).join('');
+  // grid
+  document.getElementById('port').innerHTML=WORK.map(function(w){
+    return '<a class="work-card" data-cat="'+w[2]+'" href="contact.html">'+
+      '<div class="work-img"><img src="'+w[3]+'" alt="'+w[4]+'" loading="lazy"></div>'+
+      '<div class="work-card__meta"><h4>'+w[0]+'</h4><span class="tag">'+w[2]+'</span></div>'+
+      '<p>'+w[1]+'</p></a>';
+  }).join('');
+  // filtering
+  document.querySelectorAll('.filter').forEach(function(f){
+    f.addEventListener('click',function(){
+      document.querySelectorAll('.filter').forEach(function(x){x.classList.remove('on')});
+      f.classList.add('on');
+      var cat=f.getAttribute('data-cat');
+      document.querySelectorAll('#port .work-card').forEach(function(card){
+        var show=cat==='All'||card.getAttribute('data-cat')===cat;
+        card.classList.toggle('hide',!show);
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
