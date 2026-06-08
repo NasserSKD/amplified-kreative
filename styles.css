@@ -294,6 +294,7 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1;letter-spacing
 .chip-toggle.on{background:var(--ink);color:#fff;border-color:var(--ink)}
 .form-status{margin-top:14px;color:var(--muted);font-size:15px;line-height:1.5}
 .form-status.is-error{color:#9b153f}
+.form-status.is-success{color:#1a7a3a;font-weight:600}
 @media(max-width:640px){.form{grid-template-columns:1fr}}
 
 /* logo strip */
