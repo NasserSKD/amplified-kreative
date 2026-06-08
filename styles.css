@@ -121,7 +121,7 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1;letter-spacing
 .nav__links a:hover{background:var(--paper-2)}
 .nav__links a.is-active{color:var(--magenta)}
 .nav__cta{display:flex;align-items:center;gap:10px}
-.nav__book{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:10px 4px}
+.nav__book{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:13px 6px;min-height:44px;display:inline-flex;align-items:center}
 .nav__book:hover{color:var(--magenta)}
 .nav__burger{display:none;flex-direction:column;gap:5px;padding:10px}
 .nav__burger span{width:24px;height:2.5px;background:var(--ink);border-radius:2px;transition:transform .25s ease,opacity .25s ease}
