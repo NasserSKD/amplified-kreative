@@ -28,24 +28,11 @@
 
 <section class="section--tight">
   <div class="wrap">
-    <div class="svc-cards reveal" id="svcCards"></div>
-  </div>
-</section>
-
-<!-- legacy capability inventory -->
-<section class="section section-paper2">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <div><span class="eyebrow">50+ capabilities</span><h2 style="margin-top:18px">Every legacy service,<br>fully represented.</h2></div>
+    <div class="services-intro reveal">
+      <span class="eyebrow">Seven ways to get heard</span>
+      <p>Every discipline is built to work brilliantly on its own and even better together. Explore what each service can do for your brand.</p>
     </div>
-    <div class="cards reveal">
-      <div class="card"><h3>Graphic Design</h3><p>Branding, websites, flyers, billboards, infographics, vehicle branding, resumes, brochures, presentations, logos, business cards, stationery, pitch decks and publications.</p></div>
-      <div class="card"><h3>Web Development</h3><p>WordPress, Wix, Webflow, Shopify, Squarespace, domain registration, payment integration, SEO, maintenance and hosting.</p></div>
-      <div class="card"><h3>Digital Marketing</h3><p>Social management, content generation, blog content, campaign strategy, social graphics, copywriting, photography, digital ads, email graphics and email marketing.</p></div>
-      <div class="card"><h3>Audio &amp; Video</h3><p>Documentaries, radio and TV commercials, campaign videos, reels, audio production, 2D/3D animation, subtitles, grading, explainers, CRBT, visual effects and transitions.</p></div>
-      <div class="card"><h3>Photography</h3><p>Product, lifestyle, event and portrait photography, with styling, art direction, retouching and campaign-ready delivery.</p></div>
-      <div class="card"><h3>Printing</h3><p>Large-format, embroidery, merchandise, offset, digital and screen printing, plastic cards, billboards and 3D signage.</p></div>
-    </div>
+    <div class="service-showcase" id="svcCards"></div>
   </div>
 </section>
 
@@ -109,20 +96,86 @@
 <script>
 (function(){
   var data=[
-    ['Branding & Graphic Design','Identity systems, logos, guidelines and collateral that make you unforgettable.','service-branding.html'],
-    ['Video Production','Concept to final cut — commercials, brand films and scroll-stopping social.','service-video.html'],
-    ['Website Design & Development','Eye-catching, high-converting sites on WordPress, Webflow or Wix.','service-web.html'],
-    ['Digital Marketing','Campaigns and insights that reach real customers and grow your brand.','service-digital.html'],
-    ['Audio Production','Jingles, podcasts, voice-over and sound design people remember.','service-audio.html'],
-    ['Photography','Product, lifestyle and event photography shot with polish.','service-photography.html'],
-    ['Printing','Large-format, packaging and collateral, beautifully produced.','service-printing.html']
+    {
+      name:'Branding & Graphic Design',
+      line:'Make the right impression before you say a word.',
+      desc:'We turn strategy into a distinct visual system, then carry it across every touchpoint so your brand is recognised, remembered and trusted.',
+      href:'service-branding.html',
+      image:'assets/legacy/services/branding.jpg',
+      alt:'Amplified Kreative branding and graphic design work',
+      deliverables:['Brand strategy & positioning','Logo suites & identity systems','Brand guidelines','Pitch decks & presentations','Brochures, publications & stationery','Packaging, billboards & vehicle branding']
+    },
+    {
+      name:'Video Production',
+      line:'Stories with enough movement to move people.',
+      desc:'From first concept to final cut, our team handles complete productions shaped for campaigns, television and the screens your audience uses every day.',
+      href:'service-video.html',
+      image:'assets/legacy/services/video.jpg',
+      alt:'Amplified Kreative video production',
+      deliverables:['Documentaries & brand films','TV commercials & campaign videos','Reels & social-first content','2D / 3D animation','Explainers, subtitles & visual effects','Editing, sound design & colour grading']
+    },
+    {
+      name:'Website Design & Development',
+      line:'A digital front door people want to walk through.',
+      desc:'We design and build clear, credible, high-converting websites, then keep them fast, discoverable and dependable after launch.',
+      href:'service-web.html',
+      image:'assets/legacy/services/web.jpg',
+      alt:'Amplified Kreative website design and development',
+      deliverables:['UX, UI & responsive design','WordPress, Webflow & Wix builds','Shopify & Squarespace sites','E-commerce & payment integration','SEO, domains & hosting','Maintenance & ongoing support']
+    },
+    {
+      name:'Digital Marketing',
+      line:'Turn attention into measurable momentum.',
+      desc:'We connect strategy, content and media into campaigns that build a consistent presence, reach the right people and keep improving.',
+      href:'service-digital.html',
+      image:'assets/legacy/services/digital.jpg',
+      alt:'Amplified Kreative digital marketing campaign work',
+      deliverables:['Campaign & content strategy','Social media management','Copywriting & blog content','Social graphics & content production','Digital advertising','Email graphics & email marketing']
+    },
+    {
+      name:'Audio Production',
+      line:'Give your brand a voice that stays with people.',
+      desc:'We create polished audio built to carry a message clearly and memorably, whether it plays on radio, in a podcast or at the heart of a campaign.',
+      href:'service-audio.html',
+      image:'assets/legacy/services/audio.jpg',
+      alt:'Amplified Kreative audio production',
+      deliverables:['Radio commercials & spots','Jingles & sonic branding','Podcasts','Voice-over recording','Sound design & mixing','CRBT & campaign audio']
+    },
+    {
+      name:'Photography',
+      line:'Make every frame earn attention.',
+      desc:'From products and people to live moments, we plan and shoot purposeful images with the polish and flexibility every campaign needs.',
+      href:'service-photography.html',
+      image:'assets/legacy/services/photography.jpg',
+      alt:'Amplified Kreative photography',
+      deliverables:['Product photography','Lifestyle campaigns','Portraits & team photography','Event coverage','Styling & art direction','Retouching & campaign-ready delivery']
+    },
+    {
+      name:'Printing',
+      line:'Take your identity off-screen and into the world.',
+      desc:'We manage print from artwork and material selection through proofing and production, delivering physical brand pieces that feel as good as they look.',
+      href:'service-printing.html',
+      image:'assets/legacy/services/printing.jpg',
+      alt:'Amplified Kreative printing and branded materials',
+      deliverables:['Large-format, offset & digital print','Packaging, brochures & stationery','Embroidery & screen printing','Branded merchandise','Plastic cards, billboards & 3D signage','Proofing, quality control & delivery']
+    }
   ];
   document.getElementById('svcCards').innerHTML=data.map(function(s,i){
     var n=String(i+1).padStart(2,'0');
-    return '<a class="scard" href="'+s[2]+'">'+
-      '<span class="scard__num">'+n+' / Service</span>'+
-      '<div><h3>'+s[0]+'</h3><p style="margin-top:14px">'+s[1]+'</p></div>'+
-      '<span class="go">&#8599;</span></a>';
+    return '<article class="service-panel reveal">'+
+      '<a class="service-panel__visual" href="'+s.href+'" aria-label="Explore '+s.name+'">'+
+        '<img src="'+s.image+'" alt="'+s.alt+'" loading="lazy">'+
+        '<span class="service-panel__image-label">'+n+' / '+s.name+'</span>'+
+      '</a>'+
+      '<div class="service-panel__content">'+
+        '<span class="service-panel__num">'+n+' / Service</span>'+
+        '<h2>'+s.name+'</h2>'+
+        '<p class="service-panel__line">'+s.line+'</p>'+
+        '<p class="service-panel__desc">'+s.desc+'</p>'+
+        '<div class="service-panel__deliverables"><span>Key deliverables</span><ul>'+s.deliverables.map(function(d){return '<li>'+d+'</li>'}).join('')+'</ul></div>'+
+        '<a href="'+s.href+'" class="service-panel__link">Explore '+s.name+' <span>&#8599;</span></a>'+
+      '</div>'+
+    '</article>';
   }).join('');
 })();
 </script>
