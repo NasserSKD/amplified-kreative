@@ -21,9 +21,8 @@
 <link rel="canonical" href="https://amplifiedkreative.com/portfolio/">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Organization","LocalBusiness"],"@id":"https://amplifiedkreative.com/#organization","name":"Amplified Kreative","url":"https://amplifiedkreative.com/","email":"info@amplified.com","telephone":"+256702366511","address":{"@type":"PostalAddress","addressLocality":"Kampala","addressCountry":"UG"},"sameAs":["https://www.instagram.com/ug_amplified/","https://twitter.com/amplified_ug","https://youtube.com/channel/UC7o0IxsaUdEou6fdTFi2HIw"]},{"@type":"WebSite","@id":"https://amplifiedkreative.com/#website","name":"Amplified Kreative","url":"https://amplifiedkreative.com/","publisher":{"@id":"https://amplifiedkreative.com/#organization"}},{"@type":"WebPage","name":"Work — Amplified Kreative | Portfolio","description":"Explore Amplified Kreative's portfolio — branding, video production, web design, digital marketing, print and photography for brands across East Africa.","url":"https://amplifiedkreative.com/portfolio/","isPartOf":{"@id":"https://amplifiedkreative.com/#website"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://amplifiedkreative.com/"},{"@type":"ListItem","position":2,"name":"Work","item":"https://amplifiedkreative.com/portfolio/"}]}]}</script>
 <link rel="icon" href="assets/logo.webp">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght%4012..96,400;12..96,500;12..96,600;12..96,700;12..96,800&amp;family=Hanken+Grotesk:wght%40400;500;600;700&amp;family=Space+Mono:wght%40400;700&amp;display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/hanken-grotesk.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 <style>
 .filters{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
@@ -50,7 +49,7 @@
 .video-frame{aspect-ratio:16/9;background:var(--ink)}
 .video-frame iframe,.audio-card iframe{width:100%;height:100%;border:0;display:block}
 .video-meta,.audio-meta{padding:18px}
-.video-meta h4,.audio-meta h4{font-size:clamp(18px,2vw,24px);font-weight:700}
+.video-meta h3,.audio-meta h3{font-size:clamp(18px,2vw,24px);font-weight:700}
 .video-meta .tag,.audio-meta .tag{margin-top:10px}
 .audio-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,30px)}
 .audio-card iframe{height:152px}
@@ -78,7 +77,7 @@
       <div class="feat-img"><img decoding="async" src="assets/portfolio/branding-left.jpeg" alt="Speke Apartments — Brand Identity"></div>
       <div>
         <span class="eyebrow on-dark">Featured · Hospitality</span>
-        <h3 style="margin-top:18px">Speke Apartments</h3>
+        <h2 style="margin-top:18px">Speke Apartments</h2>
         <p class="lead" style="color:rgba(255,255,255,.62);margin-top:16px">A full visual identity, signage and collateral system for a flagship hospitality brand — delivered on time, on budget, and with a return on investment that keeps them coming back.</p>
         <div class="pill-list" style="margin-top:24px">
           <span class="tag" style="background:var(--magenta);color:#fff">Branding</span>
@@ -137,17 +136,17 @@
   document.getElementById('port').innerHTML=data.images.map(function(w){
     return '<article class="work-card filterable" data-cat="'+w[1]+'">'+
       '<div class="work-img"><img decoding="async" src="'+w[2]+'" alt="'+w[0]+' by Amplified Kreative" loading="lazy"></div>'+
-      '<div class="work-card__meta"><h4>'+w[0]+'</h4><span class="tag">'+w[1]+'</span></div></article>';
+      '<div class="work-card__meta"><h3>'+w[0]+'</h3><span class="tag">'+w[1]+'</span></div></article>';
   }).join('');
   document.getElementById('videoPort').innerHTML=data.videos.map(function(v,i){
     return '<article class="video-card filterable" data-cat="Video">'+
       '<div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/'+v[2]+'" title="'+v[0]+' '+(i+1)+' by Amplified Kreative" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>'+
-      '<div class="video-meta"><h4>'+v[0]+'</h4><span class="tag">'+v[1]+'</span></div></article>';
+      '<div class="video-meta"><h3>'+v[0]+'</h3><span class="tag">'+v[1]+'</span></div></article>';
   }).join('');
   document.getElementById('audioPort').innerHTML=data.audio.map(function(a){
     return '<article class="audio-card filterable" data-cat="Audio">'+
       '<iframe src="'+a[2]+'" title="'+a[0]+' audio production by Amplified Kreative" loading="lazy"></iframe>'+
-      '<div class="audio-meta"><h4>'+a[0]+'</h4><span class="tag">'+a[1]+'</span></div></article>';
+      '<div class="audio-meta"><h3>'+a[0]+'</h3><span class="tag">'+a[1]+'</span></div></article>';
   }).join('');
   document.querySelectorAll('.filter').forEach(function(f){
     f.addEventListener('click',function(){

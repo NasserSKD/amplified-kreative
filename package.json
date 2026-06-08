@@ -2,6 +2,7 @@
   "name": "amplified-kreative-site",
   "private": true,
   "scripts": {
-    "audit": "node scripts/audit-site.mjs"
+    "audit": "node scripts/audit-site.mjs",
+    "build": "npm run audit"
   }
 }

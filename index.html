@@ -21,9 +21,8 @@
 <link rel="canonical" href="https://amplifiedkreative.com/">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Organization","LocalBusiness"],"@id":"https://amplifiedkreative.com/#organization","name":"Amplified Kreative","url":"https://amplifiedkreative.com/","email":"info@amplified.com","telephone":"+256702366511","address":{"@type":"PostalAddress","addressLocality":"Kampala","addressCountry":"UG"},"sameAs":["https://www.instagram.com/ug_amplified/","https://twitter.com/amplified_ug","https://youtube.com/channel/UC7o0IxsaUdEou6fdTFi2HIw"]},{"@type":"WebSite","@id":"https://amplifiedkreative.com/#website","name":"Amplified Kreative","url":"https://amplifiedkreative.com/","publisher":{"@id":"https://amplifiedkreative.com/#organization"}},{"@type":"WebPage","name":"Amplified Kreative — Be Heard | Kampala Creative Studio","description":"Amplified Kreative is a full-service creative studio in Kampala, Uganda. Branding, video production, web design, digital marketing, photography & printing — all under one roof.","url":"https://amplifiedkreative.com/","isPartOf":{"@id":"https://amplifiedkreative.com/#website"}}]}</script>
 <link rel="icon" href="assets/logo.webp">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght%4012..96,400;12..96,500;12..96,600;12..96,700;12..96,800&amp;family=Hanken+Grotesk:wght%40400;500;600;700&amp;family=Space+Mono:wght%40400;700&amp;display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/hanken-grotesk.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 <style>
 /* ====== HERO — MEGATYPE ====== */
@@ -96,7 +95,7 @@
 .work-card .ph{aspect-ratio:4/3;min-height:0;transition:transform .35s ease}
 .work-card:hover .ph{transform:scale(.985)}
 .work-card__meta{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:16px}
-.work-card__meta h4{font-size:clamp(20px,2.2vw,28px);font-weight:700}
+.work-card__meta h3{font-size:clamp(20px,2.2vw,28px);font-weight:700}
 .work-card__meta .tag{flex:none}
 .work-card p{color:var(--muted);font-size:15px;margin-top:4px}
 @media(max-width:680px){.work-grid{grid-template-columns:1fr}}
@@ -151,14 +150,14 @@
 <!-- ============ SERVICES ============ -->
 <section class="section section--tight" id="services">
   <div class="wrap">
-    <div class="sec-head reveal">
+    <div class="sec-head">
       <div>
         <span class="eyebrow">What we do</span>
         <h2 style="margin-top:18px">Seven services.<br>One creative engine.</h2>
       </div>
       <a href="/services/" class="btn btn--ghost">All services <span class="arr">&#8599;</span></a>
     </div>
-    <div class="svc-list reveal" id="homeSvcList"></div>
+    <div class="svc-list" id="homeSvcList"></div>
   </div>
 </section>
 
@@ -225,22 +224,22 @@
     <div class="work-grid reveal">
       <a href="/portfolio/" class="work-card">
         <div style="aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius)"><img decoding="async" src="assets/portfolio/branding-left.jpeg" alt="Speke Apartments brand identity" style="width:100%;height:100%;object-fit:cover;transition:transform .35s ease"></div>
-        <div class="work-card__meta"><h4>Speke Apartments</h4><span class="tag">Branding</span></div>
+        <div class="work-card__meta"><h3>Speke Apartments</h3><span class="tag">Branding</span></div>
         <p>Full visual identity and signage for a flagship hospitality brand.</p>
       </a>
       <a href="/portfolio/" class="work-card">
         <div style="aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius)"><img decoding="async" src="assets/portfolio/ngo-forum.jpeg" alt="NGO Forum publication design" style="width:100%;height:100%;object-fit:cover;transition:transform .35s ease"></div>
-        <div class="work-card__meta"><h4>NGO Forum</h4><span class="tag">Branding</span></div>
+        <div class="work-card__meta"><h3>NGO Forum</h3><span class="tag">Branding</span></div>
         <p>Publication design and visual identity for an international NGO platform.</p>
       </a>
       <a href="/portfolio/" class="work-card">
         <div style="aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius)"><img decoding="async" src="assets/portfolio/social-media-1.jpeg" alt="Social media campaigns" style="width:100%;height:100%;object-fit:cover;transition:transform .35s ease"></div>
-        <div class="work-card__meta"><h4>Social Media Campaigns</h4><span class="tag">Marketing</span></div>
+        <div class="work-card__meta"><h3>Social Media Campaigns</h3><span class="tag">Marketing</span></div>
         <p>Always-on content strategy and design that consistently grew brand reach.</p>
       </a>
       <a href="/portfolio/" class="work-card">
         <div style="aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius)"><img decoding="async" src="assets/portfolio/main-car.jpeg" alt="Vehicle branding" style="width:100%;height:100%;object-fit:cover;transition:transform .35s ease"></div>
-        <div class="work-card__meta"><h4>Vehicle Branding</h4><span class="tag">Print</span></div>
+        <div class="work-card__meta"><h3>Vehicle Branding</h3><span class="tag">Print</span></div>
         <p>Full vehicle wrap design and execution for a corporate fleet rollout.</p>
       </a>
     </div>

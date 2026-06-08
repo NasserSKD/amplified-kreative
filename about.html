@@ -21,9 +21,8 @@
 <link rel="canonical" href="https://amplifiedkreative.com/about/">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Organization","LocalBusiness"],"@id":"https://amplifiedkreative.com/#organization","name":"Amplified Kreative","url":"https://amplifiedkreative.com/","email":"info@amplified.com","telephone":"+256702366511","address":{"@type":"PostalAddress","addressLocality":"Kampala","addressCountry":"UG"},"sameAs":["https://www.instagram.com/ug_amplified/","https://twitter.com/amplified_ug","https://youtube.com/channel/UC7o0IxsaUdEou6fdTFi2HIw"]},{"@type":"WebSite","@id":"https://amplifiedkreative.com/#website","name":"Amplified Kreative","url":"https://amplifiedkreative.com/","publisher":{"@id":"https://amplifiedkreative.com/#organization"}},{"@type":"WebPage","name":"About — Amplified Kreative | Creative Studio, Kampala","description":"Founded in 2009 in Kampala, Amplified Kreative has delivered 287+ projects for 126+ clients. Meet the team behind East Africa's boldest creative studio.","url":"https://amplifiedkreative.com/about/","isPartOf":{"@id":"https://amplifiedkreative.com/#website"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://amplifiedkreative.com/"},{"@type":"ListItem","position":2,"name":"About","item":"https://amplifiedkreative.com/about/"}]}]}</script>
 <link rel="icon" href="assets/logo.webp">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght%4012..96,400;12..96,500;12..96,600;12..96,700;12..96,800&amp;family=Hanken+Grotesk:wght%40400;500;600;700&amp;family=Space+Mono:wght%40400;700&amp;display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/hanken-grotesk.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="styles.css">
 <style>
 .about-hero{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(30px,5vw,70px);align-items:end}
@@ -39,14 +38,14 @@
 @media(max-width:860px){.team{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:540px){.team{grid-template-columns:1fr}}
 .member img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;border-radius:var(--radius);display:block}
-.member h4{margin-top:14px;font-size:clamp(17px,1.8vw,20px);font-weight:700}
+.member h3{margin-top:14px;font-size:clamp(17px,1.8vw,20px);font-weight:700}
 .member span{font-size:14px;color:var(--muted);font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase}
 
 /* impact cards */
 .impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.5vw,30px);margin-top:36px}
 @media(max-width:700px){.impact-grid{grid-template-columns:1fr}}
 .impact-card{background:var(--ink-2,#1e1b24);border-radius:var(--radius);padding:clamp(22px,2.5vw,34px)}
-.impact-card h4{font-family:var(--display);font-weight:800;font-size:clamp(18px,1.8vw,22px);color:#fff;margin-bottom:10px}
+.impact-card h3{font-family:var(--display);font-weight:800;font-size:clamp(18px,1.8vw,22px);color:#fff;margin-bottom:10px}
 .impact-card p{color:rgba(255,255,255,.6);font-size:15px;line-height:1.6}
 </style>
 </head>
@@ -175,39 +174,39 @@
     <div class="team reveal">
       <div class="member">
         <img decoding="async" src="assets/team/isaac.jpeg" alt="Isaac Mutebi Rix">
-        <h4>Isaac Mutebi Rix</h4><span>Team Leader</span>
+        <h3>Isaac Mutebi Rix</h3><span>Team Leader</span>
       </div>
       <div class="member">
         <img decoding="async" src="assets/team/mark.jpeg" alt="Mark Kawalya">
-        <h4>Mark Kawalya</h4><span>Business Lead</span>
+        <h3>Mark Kawalya</h3><span>Business Lead</span>
       </div>
       <div class="member">
         <img decoding="async" src="assets/team/isaiah.jpeg" alt="Isaiah Nsubuga">
-        <h4>Isaiah Nsubuga</h4><span>Creative Lead</span>
+        <h3>Isaiah Nsubuga</h3><span>Creative Lead</span>
       </div>
       <div class="member">
         <img decoding="async" src="assets/team/mike.jpeg" alt="Mike Mpanga">
-        <h4>Mike Mpanga</h4><span>Videographer</span>
+        <h3>Mike Mpanga</h3><span>Videographer</span>
       </div>
       <div class="member">
         <img decoding="async" src="assets/team/christopher.jpeg" alt="Christopher Nsubuga">
-        <h4>Christopher Nsubuga</h4><span>Head of Photography</span>
+        <h3>Christopher Nsubuga</h3><span>Head of Photography</span>
       </div>
       <div class="member">
         <img decoding="async" src="assets/team/belinda.jpeg" alt="Belinda Ann Yiga">
-        <h4>Belinda Ann Yiga</h4><span>Voice Actor</span>
+        <h3>Belinda Ann Yiga</h3><span>Voice Actor</span>
       </div>
       <div class="member">
         <img decoding="async" src="assets/team/timothy.jpeg" alt="Timothy Nsonga">
-        <h4>Timothy Nsonga</h4><span>Head of Marketing</span>
+        <h3>Timothy Nsonga</h3><span>Head of Marketing</span>
       </div>
       <div class="member">
         <img decoding="async" src="assets/team/grace.jpeg" alt="Grace Mutebi">
-        <h4>Grace Mutebi</h4><span>Quality Control</span>
+        <h3>Grace Mutebi</h3><span>Quality Control</span>
       </div>
       <div class="member">
         <img decoding="async" src="assets/team/masembe.jpeg" alt="Masembe Catherine">
-        <h4>Masembe Catherine</h4><span>Financial Controller</span>
+        <h3>Masembe Catherine</h3><span>Financial Controller</span>
       </div>
     </div>
   </div>
@@ -225,15 +224,15 @@
     <p class="lead reveal" style="color:rgba(255,255,255,.62);max-width:58ch;margin-bottom:40px">We channel 35% of our proceeds into empowering underprivileged youth across Uganda through three active programs.</p>
     <div class="impact-grid reveal">
       <div class="impact-card">
-        <h4>AMP</h4>
+        <h3>AMP</h3>
         <p>Amplified Mentorship Program — digital skills training for the next generation of creatives in Uganda's underserved communities.</p>
       </div>
       <div class="impact-card">
-        <h4>ASOMA</h4>
+        <h3>ASOMA</h3>
         <p>Amplified School of Major Acquaintance — structured youth development equipping young people with professional and life skills.</p>
       </div>
       <div class="impact-card">
-        <h4>Amplified 4 Christ</h4>
+        <h3>Amplified 4 Christ</h3>
         <p>A gospel outreach initiative using creative arts — music, design, and video — to spread hope and build faith-based communities.</p>
       </div>
     </div>

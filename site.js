@@ -44,7 +44,7 @@
     var html =
       '<div class="nav__inner">' +
         '<a href="/" class="nav__logo" aria-label="Amplified Kreative home">' +
-          '<img decoding="async" src="assets/logo.webp" alt="" width="38" height="38">' +
+          '<img decoding="async" src="assets/logo.webp" alt="" width="25" height="38">' +
           '<span>Amplified</span>' +
         '</a>' +
         '<nav class="nav__links" id="primary-navigation" aria-label="Primary navigation">' + links + '</nav>' +
@@ -94,8 +94,8 @@
             '<div class="foot__mark"><span class="tri"></span> Amplified</div>' +
             '<p>A full-service creative studio helping bold brands across East Africa and beyond be seen, be remembered, and be heard.</p>' +
           '</div>' +
-          '<div class="foot__col"><h5>Services</h5><ul>' + svcLinks + '</ul></div>' +
-          '<div class="foot__col"><h5>Studio</h5><ul>' +
+          '<div class="foot__col"><p class="foot__heading">Services</p><ul>' + svcLinks + '</ul></div>' +
+          '<div class="foot__col"><p class="foot__heading">Studio</p><ul>' +
             '<li><a href="/portfolio/">Work</a></li>' +
             '<li><a href="/services/">Services</a></li>' +
             '<li><a href="/pricing/">Pricing</a></li>' +
@@ -103,7 +103,7 @@
             '<li><a href="/contact-us/">Contact</a></li>' +
             '<li><a href="' + LINKS.calendly + '" target="_blank" rel="noopener">Book a free call</a></li>' +
           '</ul></div>' +
-          '<div class="foot__col"><h5>Connect</h5><ul>' +
+          '<div class="foot__col"><p class="foot__heading">Connect</p><ul>' +
             '<li><a href="' + LINKS.email + '">info@amplified.com</a></li>' +
             '<li><a href="' + LINKS.phone + '">+256 702 366 511</a></li>' +
             '<li style="margin-top:8px"><div class="soc-icons">' +
@@ -141,7 +141,7 @@
     actions.className = 'contact-actions';
     actions.setAttribute('aria-label', 'Quick contact options');
     actions.innerHTML =
-      '<a class="contact-action contact-action--book" href="' + LINKS.calendly + '" target="_blank" rel="noopener" aria-label="Book a free 30-minute call">' +
+      '<a class="contact-action contact-action--book" href="' + LINKS.calendly + '" target="_blank" rel="noopener" aria-label="Book a call">' +
         '<span class="contact-action__label">Book a call</span><span class="contact-action__icon">&#8599;</span>' +
       '</a>' +
       '<a class="contact-action contact-action--whatsapp" href="' + LINKS.whatsapp + '" target="_blank" rel="noopener" aria-label="Chat with Amplified Kreative on WhatsApp">' +
@@ -163,7 +163,10 @@
         if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-    els.forEach(function (e) { io.observe(e); });
+    els.forEach(function (e) {
+      if (e.getBoundingClientRect().top < window.innerHeight * 1.25) e.classList.add('in');
+      else io.observe(e);
+    });
   }
 
   /* ---------- FAQ accordion ---------- */
