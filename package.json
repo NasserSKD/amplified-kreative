@@ -1,0 +1,7 @@
+{
+  "name": "amplified-kreative-site",
+  "private": true,
+  "scripts": {
+    "audit": "node scripts/audit-site.mjs"
+  }
+}

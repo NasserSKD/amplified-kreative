@@ -53,18 +53,5 @@ window.AMP_CONTENT = {
     ['Branding Gallery 08', 'Branding', 'assets/legacy/portfolio/image-8.jpg'],
     ['Branding Gallery 09', 'Branding', 'assets/legacy/portfolio/image-9.jpg'],
     ['NGO Forum', 'Branding', 'assets/portfolio/ngo-forum.jpeg']
-  ],
-  legacyRoutes: {
-    '/portfolio/': 'work.html',
-    '/branding-graphic-design/': 'service-branding.html',
-    '/video-production/': 'service-video.html',
-    '/website-design-development/': 'service-web.html',
-    '/digital-marketing/': 'service-digital.html',
-    '/audio-production/': 'service-audio.html',
-    '/photography/': 'service-photography.html',
-    '/printing-3/': 'service-printing.html',
-    '/contact-us/': 'contact.html',
-    '/our-story/': 'about.html',
-    '/blog/': 'about.html'
-  }
+  ]
 };

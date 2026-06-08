@@ -44,7 +44,7 @@
     var html =
       '<div class="nav__inner">' +
         '<a href="/" class="nav__logo" aria-label="Amplified Kreative home">' +
-          '<img src="assets/logo.webp" alt="" width="38" height="38">' +
+          '<img decoding="async" src="assets/logo.webp" alt="" width="38" height="38">' +
           '<span>Amplified</span>' +
         '</a>' +
         '<nav class="nav__links" id="primary-navigation" aria-label="Primary navigation">' + links + '</nav>' +
