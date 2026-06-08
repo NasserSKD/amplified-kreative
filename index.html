@@ -17,34 +17,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="styles.css">
 <style>
-/* ====== HERO SWITCHER ====== */
-.hero{display:none}
-body[data-hero="a"] .hero--a,
-body[data-hero="b"] .hero--b,
-body[data-hero="c"] .hero--c{display:block}
-
-.switcher{
-  position:fixed;z-index:90;bottom:22px;left:50%;transform:translateX(-50%);
-  display:flex;align-items:center;gap:4px;padding:6px;border-radius:100px;
-  background:rgba(22,19,27,.9);backdrop-filter:blur(10px);box-shadow:0 10px 40px rgba(0,0,0,.3);
-}
-.switcher__label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);padding:0 10px 0 12px}
-.switcher button{padding:8px 16px;border-radius:100px;color:rgba(255,255,255,.7);font-weight:700;font-size:13.5px;transition:.18s}
-.switcher button.on{background:var(--magenta);color:#fff}
-.switcher button:not(.on):hover{color:#fff}
-@media(max-width:560px){.switcher__label{display:none}.switcher button{padding:8px 12px;font-size:12.5px}}
-
-/* Megatype-only lock — remove these 3 lines to re-enable switcher */
-.hero--a{display:block!important}
-.hero--b,.hero--c{display:none!important}
-.switcher{display:none!important}
-
-/* ====== HERO A — MEGATYPE ====== */
+/* ====== HERO — MEGATYPE ====== */
 .hero--a{background:var(--paper);position:relative;overflow:hidden;padding-block:clamp(40px,7vw,96px)}
 .hero--a .wrap{position:relative;z-index:2}
 .heroA__top{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:clamp(20px,3vw,40px)}
 .heroA__sub{max-width:34ch;font-size:clamp(17px,1.6vw,20px);color:var(--muted);line-height:1.5}
 .heroA__big{font-family:var(--display);font-weight:800;line-height:.82;letter-spacing:-.04em;font-size:clamp(84px,21vw,330px);text-transform:uppercase}
+.heroA__big .l1{display:block}
 .heroA__big .l2{display:flex;align-items:center;gap:.12em;color:var(--magenta)}
 .heroA__big .tri{width:0;height:0;border-left:clamp(20px,4vw,58px) solid transparent;border-right:clamp(20px,4vw,58px) solid transparent;border-bottom:clamp(34px,7vw,100px) solid var(--yellow);flex:none}
 .heroA__cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:clamp(24px,3vw,42px)}
@@ -54,39 +33,6 @@ body[data-hero="c"] .hero--c{display:block}
 .ticker-track span::after{content:"";width:9px;height:9px;background:var(--magenta);border-radius:2px;transform:rotate(45deg)}
 @keyframes scroll{to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.ticker-track{animation:none}}
-
-/* ====== HERO B — SPOTLIGHT ====== */
-.hero--b{background:var(--ink);color:#fff;position:relative;overflow:hidden;padding-block:clamp(56px,8vw,120px)}
-.hero--b::before{content:"";position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:120vw;height:120vh;
-  background:radial-gradient(closest-side,rgba(224,32,95,.35),transparent 70%);pointer-events:none}
-.hero--b .wrap{position:relative;z-index:2;text-align:center;display:flex;flex-direction:column;align-items:center}
-.heroB__eye{margin-bottom:26px}
-.heroB__h{font-family:var(--display);font-weight:800;line-height:.92;letter-spacing:-.03em;font-size:clamp(46px,8vw,118px);max-width:16ch}
-.heroB__h em{font-style:normal;color:var(--magenta)}
-.heroB__sub{color:rgba(255,255,255,.62);font-size:clamp(17px,1.8vw,21px);max-width:54ch;margin:26px auto 0;line-height:1.55}
-.heroB__cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:36px}
-.heroB__reel{margin-top:clamp(40px,6vw,72px);width:100%;max-width:1000px;aspect-ratio:16/8;border-radius:22px}
-.heroB__reel iframe{width:100%;height:100%;border:0;border-radius:inherit}
-.heroB__stats{display:flex;gap:clamp(28px,6vw,80px);margin-top:44px;flex-wrap:wrap;justify-content:center}
-.heroB__stats div{text-align:center}
-.heroB__stats b{font-family:var(--display);font-weight:800;font-size:clamp(34px,4vw,54px);display:block;line-height:1;color:#fff}
-.heroB__stats span{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5)}
-
-/* ====== HERO C — EDITORIAL ====== */
-.hero--c{background:var(--paper);position:relative;padding-block:clamp(40px,5vw,80px)}
-.heroC__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,64px);align-items:center}
-.heroC__h{font-family:var(--display);font-weight:800;line-height:.88;letter-spacing:-.03em;font-size:clamp(52px,7.4vw,108px)}
-.heroC__h .mag{color:var(--magenta)}
-.heroC__sub{color:var(--muted);font-size:clamp(17px,1.7vw,21px);max-width:42ch;margin-top:26px;line-height:1.55}
-.heroC__cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
-.heroC__meta{display:flex;gap:34px;margin-top:40px;flex-wrap:wrap}
-.heroC__meta b{font-family:var(--display);font-weight:800;font-size:clamp(28px,3vw,40px);display:block;line-height:1}
-.heroC__meta span{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.heroC__collage{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1.3fr 1fr;gap:14px;height:clamp(420px,52vw,580px)}
-.heroC__collage .ph:nth-child(1){grid-row:1/3}
-.heroC__collage .ph:nth-child(3){background:var(--magenta);border:none}
-.heroC__collage .ph:nth-child(3) .ph-label{color:#fff}
-@media(max-width:860px){.heroC__grid{grid-template-columns:1fr}.heroC__collage{height:380px}}
 
 /* ====== HOME SHARED SECTIONS ====== */
 .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:clamp(36px,5vw,60px)}
@@ -167,73 +113,27 @@ body[data-hero="c"] .hero--c{display:block}
 </style>
 </head>
 <body data-page="home">
+<main id="main-content">
 
-<!-- ============ HERO A — MEGATYPE ============ -->
-<section class="hero hero--a" data-screen-label="Home / Hero A">
+<!-- ============ HERO ============ -->
+<section class="hero hero--a" data-screen-label="Home / Hero">
   <div class="wrap">
     <div class="heroA__top">
       <span class="eyebrow">Creative studio · Kampala</span>
       <p class="heroA__sub">A full-service creative studio for brands that refuse to blend in. Branding, film, web &amp; marketing under one roof.</p>
     </div>
     <h1 class="heroA__big">
-      <div class="l1">BE</div>
-      <div class="l2"><span class="tri"></span>HEARD.</div>
+      <span class="l1">BE</span>
+      <span class="l2"><span class="tri" aria-hidden="true"></span>HEARD.</span>
     </h1>
     <div class="heroA__cta">
-      <a href="contact.html" class="btn btn--ink">Start a project <span class="arr">&#8599;</span></a>
-      <a href="work.html" class="btn btn--ghost">See our work</a>
+      <a href="/contact-us/" class="btn btn--ink">Start a project <span class="arr">&#8599;</span></a>
+      <a href="/portfolio/" class="btn btn--ghost">See our work</a>
     </div>
     <div class="heroA__ticker">
       <div class="ticker-track">
         <span>Branding</span><span>Video Production</span><span>Web Development</span><span>Digital Marketing</span><span>Audio</span><span>Photography</span><span>Printing</span>
         <span>Branding</span><span>Video Production</span><span>Web Development</span><span>Digital Marketing</span><span>Audio</span><span>Photography</span><span>Printing</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ HERO B — SPOTLIGHT ============ -->
-<section class="hero hero--b" data-screen-label="Home / Hero B">
-  <div class="wrap">
-    <span class="eyebrow on-dark heroB__eye">Be seen. Be remembered. Be heard.</span>
-    <h1 class="heroB__h">Your brand deserves the <em>spotlight.</em></h1>
-    <p class="heroB__sub">We're the creative team behind brands people can't stop talking about — combining strategy, design and storytelling to make you impossible to ignore.</p>
-    <div class="heroB__cta">
-      <a href="contact.html" class="btn btn--primary">Start a project <span class="arr">&#8599;</span></a>
-      <a href="work.html" class="btn btn--light">Watch the reel</a>
-    </div>
-    <div class="heroB__reel"><iframe src="https://www.youtube-nocookie.com/embed/WugcpUaCl-c" title="Amplified Kreative featured documentary" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-    <div class="heroB__stats">
-      <div><b>287+</b><span>Projects delivered</span></div>
-      <div><b>13+</b><span>Years creating</span></div>
-      <div><b>126+</b><span>Clients served</span></div>
-      <div><b>98%</b><span>Client retention</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ HERO C — EDITORIAL ============ -->
-<section class="hero hero--c" data-screen-label="Home / Hero C">
-  <div class="wrap">
-    <div class="heroC__grid">
-      <div>
-        <span class="eyebrow">Full-service creative · Est. 2014</span>
-        <h1 class="heroC__h" style="margin-top:22px">Creative that <span class="mag">cuts through</span> the noise.</h1>
-        <p class="heroC__sub">From a logo to a launch campaign, we build brands that get seen, get shared, and get heard — all from one studio in Kampala.</p>
-        <div class="heroC__cta">
-          <a href="contact.html" class="btn btn--ink">Start a project <span class="arr">&#8599;</span></a>
-          <a href="services.html" class="btn btn--ghost">Explore services</a>
-        </div>
-        <div class="heroC__meta">
-          <div><b>287+</b><span>Projects</span></div>
-          <div><b>7</b><span>Services</span></div>
-          <div><b>13+ yrs</b><span>Experience</span></div>
-        </div>
-      </div>
-      <div class="heroC__collage">
-        <div style="overflow:hidden;border-radius:var(--radius)"><img src="assets/portfolio/branding-left.jpeg" alt="Brand campaign" style="width:100%;height:100%;object-fit:cover"></div>
-        <div style="overflow:hidden;border-radius:var(--radius)"><img src="assets/portfolio/humanitarian-platform.jpeg" alt="Product shot" style="width:100%;height:100%;object-fit:cover"></div>
-        <div class="ph" style="background:var(--magenta);border:none"><span class="ph-label" style="color:#fff">Be Heard.</span></div>
       </div>
     </div>
   </div>
@@ -247,7 +147,7 @@ body[data-hero="c"] .hero--c{display:block}
         <span class="eyebrow">What we do</span>
         <h2 style="margin-top:18px">Seven services.<br>One creative engine.</h2>
       </div>
-      <a href="services.html" class="btn btn--ghost">All services <span class="arr">&#8599;</span></a>
+      <a href="/services/" class="btn btn--ghost">All services <span class="arr">&#8599;</span></a>
     </div>
     <div class="svc-list reveal" id="homeSvcList"></div>
   </div>
@@ -311,25 +211,25 @@ body[data-hero="c"] .hero--c{display:block}
         <span class="eyebrow">Selected work</span>
         <h2 style="margin-top:18px">Recent things<br>we're proud of.</h2>
       </div>
-      <a href="work.html" class="btn btn--ghost">View all work <span class="arr">&#8599;</span></a>
+      <a href="/portfolio/" class="btn btn--ghost">View all work <span class="arr">&#8599;</span></a>
     </div>
     <div class="work-grid reveal">
-      <a href="work.html" class="work-card">
+      <a href="/portfolio/" class="work-card">
         <div style="aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius)"><img src="assets/portfolio/branding-left.jpeg" alt="Speke Apartments brand identity" style="width:100%;height:100%;object-fit:cover;transition:transform .35s ease"></div>
         <div class="work-card__meta"><h4>Speke Apartments</h4><span class="tag">Branding</span></div>
         <p>Full visual identity and signage for a flagship hospitality brand.</p>
       </a>
-      <a href="work.html" class="work-card">
+      <a href="/portfolio/" class="work-card">
         <div style="aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius)"><img src="assets/portfolio/ngo-forum.jpeg" alt="NGO Forum publication design" style="width:100%;height:100%;object-fit:cover;transition:transform .35s ease"></div>
         <div class="work-card__meta"><h4>NGO Forum</h4><span class="tag">Branding</span></div>
         <p>Publication design and visual identity for an international NGO platform.</p>
       </a>
-      <a href="work.html" class="work-card">
+      <a href="/portfolio/" class="work-card">
         <div style="aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius)"><img src="assets/portfolio/social-media-1.jpeg" alt="Social media campaigns" style="width:100%;height:100%;object-fit:cover;transition:transform .35s ease"></div>
         <div class="work-card__meta"><h4>Social Media Campaigns</h4><span class="tag">Marketing</span></div>
         <p>Always-on content strategy and design that consistently grew brand reach.</p>
       </a>
-      <a href="work.html" class="work-card">
+      <a href="/portfolio/" class="work-card">
         <div style="aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius)"><img src="assets/portfolio/main-car.jpeg" alt="Vehicle branding" style="width:100%;height:100%;object-fit:cover;transition:transform .35s ease"></div>
         <div class="work-card__meta"><h4>Vehicle Branding</h4><span class="tag">Print</span></div>
         <p>Full vehicle wrap design and execution for a corporate fleet rollout.</p>
@@ -400,49 +300,26 @@ body[data-hero="c"] .hero--c{display:block}
       <h2 style="margin-top:20px">Let's make you<br>impossible to ignore.</h2>
       <p>Tell us where your brand wants to go. We'll bring the strategy, the craft and the volume to get it heard.</p>
       <div class="row">
-        <a href="contact.html" class="btn btn--ink">Start a project <span class="arr">&#8599;</span></a>
-        <a href="work.html" class="btn btn--light">See the work</a>
+        <a href="/contact-us/" class="btn btn--ink">Start a project <span class="arr">&#8599;</span></a>
+        <a href="/portfolio/" class="btn btn--light">See the work</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ HERO SWITCHER ============ -->
-<div class="switcher" role="group" aria-label="Homepage direction">
-  <span class="switcher__label">Hero</span>
-  <button data-h="a">Megatype</button>
-  <button data-h="b">Spotlight</button>
-  <button data-h="c">Editorial</button>
-</div>
-
+</main>
 <script src="site.js"></script>
 <script>
-/* hero switcher */
-(function(){
-  var KEY='amp_hero';
-  var saved=localStorage.getItem(KEY)||'a';
-  function set(h){
-    document.body.setAttribute('data-hero',h);
-    localStorage.setItem(KEY,h);
-    document.querySelectorAll('.switcher button').forEach(function(b){
-      b.classList.toggle('on',b.getAttribute('data-h')===h);
-    });
-  }
-  document.querySelectorAll('.switcher button').forEach(function(b){
-    b.addEventListener('click',function(){set(b.getAttribute('data-h'));window.scrollTo({top:0,behavior:'smooth'});});
-  });
-  set(saved);
-})();
 /* build home services list */
 (function(){
   var data=[
-    ['Branding & Graphic Design','Identity systems, logos & guidelines that make you memorable.','service-branding.html','assets/legacy/portfolio/logo-embossed.jpg','Build a visual identity people recognise before they read your name.',['Brand strategy','Logo systems','Graphic design']],
-    ['Video Production','Films, ads & social content from concept to final cut.','service-video.html','assets/legacy/services/video.jpg','Turn ideas into stories that move across screens, campaigns and communities.',['Commercials','Documentaries','Animation']],
-    ['Website Design & Development','Sites built on WordPress, Webflow or Wix that convert.','service-web.html','assets/legacy/services/web.jpg','Make your digital front door feel clear, credible and impossible to ignore.',['UX & UI','Development','E-commerce']],
-    ['Digital Marketing','Campaigns, insights & growth that reach real customers.','service-digital.html','assets/legacy/portfolio/social-media-1.jpg','Create a steady, measurable presence where your audience already spends time.',['Campaigns','Social content','Digital ads']],
-    ['Audio Production','Jingles, podcasts & sound design that stick in the mind.','service-audio.html','assets/legacy/services/audio.jpg','Give your brand a voice people remember long after the message ends.',['Radio spots','Jingles','Voice-over']],
-    ['Photography','Product, lifestyle & event photography with polish.','service-photography.html','assets/legacy/services/photography.jpg','Capture the details, people and moments that make your brand worth noticing.',['Products','Portraits','Events']],
-    ['Printing','Large-format, packaging & collateral, beautifully produced.','service-printing.html','assets/legacy/portfolio/main-car.jpg','Carry your identity into the physical world with craft you can see and feel.',['Large format','Merchandise','Signage']]
+    ['Branding & Graphic Design','Identity systems, logos & guidelines that make you memorable.','/branding-graphic-design/','assets/legacy/portfolio/logo-embossed.jpg','Build a visual identity people recognise before they read your name.',['Brand strategy','Logo systems','Graphic design']],
+    ['Video Production','Films, ads & social content from concept to final cut.','/video-production/','assets/legacy/services/video.jpg','Turn ideas into stories that move across screens, campaigns and communities.',['Commercials','Documentaries','Animation']],
+    ['Website Design & Development','Sites built on WordPress, Webflow or Wix that convert.','/website-design-development/','assets/legacy/services/web.jpg','Make your digital front door feel clear, credible and impossible to ignore.',['UX & UI','Development','E-commerce']],
+    ['Digital Marketing','Campaigns, insights & growth that reach real customers.','/digital-marketing/','assets/legacy/portfolio/social-media-1.jpg','Create a steady, measurable presence where your audience already spends time.',['Campaigns','Social content','Digital ads']],
+    ['Audio Production','Jingles, podcasts & sound design that stick in the mind.','/audio-production/','assets/legacy/services/audio.jpg','Give your brand a voice people remember long after the message ends.',['Radio spots','Jingles','Voice-over']],
+    ['Photography','Product, lifestyle & event photography with polish.','/photography/','assets/legacy/services/photography.jpg','Capture the details, people and moments that make your brand worth noticing.',['Products','Portraits','Events']],
+    ['Printing','Large-format, packaging & collateral, beautifully produced.','/printing-3/','assets/legacy/portfolio/main-car.jpg','Carry your identity into the physical world with craft you can see and feel.',['Large format','Merchandise','Signage']]
   ];
   var el=document.getElementById('homeSvcList');
   el.innerHTML=data.map(function(s,i){

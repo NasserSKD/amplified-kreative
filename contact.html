@@ -29,10 +29,11 @@
 </style>
 </head>
 <body data-page="contact">
+<main id="main-content">
 
 <section class="phead" data-screen-label="Contact / Hero">
   <div class="wrap">
-    <div class="crumb"><a href="index.html">Home</a><span class="sep">/</span><span>Contact</span></div>
+    <div class="crumb"><a href="/">Home</a><span class="sep">/</span><span>Contact</span></div>
     <div class="contact-grid">
       <div>
         <h1>Let's make<br>some <em>noise.</em></h1>
@@ -74,15 +75,15 @@
             <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@brand.co" required></div>
             <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" placeholder="+256 ..."></div>
             <div class="field full">
-              <label>What do you need? <span style="text-transform:none;letter-spacing:0;font-weight:500;color:var(--muted)">(pick any)</span></label>
-              <div class="chips">
-                <button type="button" class="chip-toggle" data-service="Branding">Branding</button>
-                <button type="button" class="chip-toggle" data-service="Video">Video</button>
-                <button type="button" class="chip-toggle" data-service="Website">Website</button>
-                <button type="button" class="chip-toggle" data-service="Marketing">Marketing</button>
-                <button type="button" class="chip-toggle" data-service="Audio">Audio</button>
-                <button type="button" class="chip-toggle" data-service="Photography">Photography</button>
-                <button type="button" class="chip-toggle" data-service="Printing">Printing</button>
+              <label id="servicesLabel">What do you need? <span style="text-transform:none;letter-spacing:0;font-weight:500;color:var(--muted)">(pick any)</span></label>
+              <div class="chips" role="group" aria-labelledby="servicesLabel">
+                <button type="button" class="chip-toggle" data-service="Branding" aria-pressed="false">Branding</button>
+                <button type="button" class="chip-toggle" data-service="Video" aria-pressed="false">Video</button>
+                <button type="button" class="chip-toggle" data-service="Website" aria-pressed="false">Website</button>
+                <button type="button" class="chip-toggle" data-service="Marketing" aria-pressed="false">Marketing</button>
+                <button type="button" class="chip-toggle" data-service="Audio" aria-pressed="false">Audio</button>
+                <button type="button" class="chip-toggle" data-service="Photography" aria-pressed="false">Photography</button>
+                <button type="button" class="chip-toggle" data-service="Printing" aria-pressed="false">Printing</button>
               </div>
               <input type="hidden" name="services" id="servicesHidden">
             </div>
@@ -100,15 +101,18 @@
             <div class="field full"><label for="msg">Tell us about the project</label><textarea id="msg" name="message" placeholder="A few lines about your goals, timeline and anything else we should know."></textarea></div>
           </div>
           <button type="submit" id="submitBtn" class="btn btn--primary">Send the brief <span class="arr">&#8599;</span></button>
+          <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
         </form>
         <script>
         (function(){
           var form=document.getElementById('contactForm');
           var btn=document.getElementById('submitBtn');
+          var status=document.getElementById('formStatus');
           // collect chip selections into hidden field
           document.querySelectorAll('.chip-toggle').forEach(function(c){
             c.addEventListener('click',function(){
               c.classList.toggle('on');
+              c.setAttribute('aria-pressed',String(c.classList.contains('on')));
               var sel=[];
               document.querySelectorAll('.chip-toggle.on').forEach(function(x){sel.push(x.getAttribute('data-service')||x.textContent)});
               document.getElementById('servicesHidden').value=sel.join(', ');
@@ -118,16 +122,18 @@
           form.addEventListener('submit',function(e){
             e.preventDefault();
             if(form.action.indexOf('YOUR_FORM_ID')!==-1){
-              // fallback: show success if form ID not set yet
-              btn.textContent='Sent — we\'ll be in touch ✓';btn.disabled=true;return;
+              status.className='form-status is-error';
+              status.innerHTML='Online enquiries are being configured. Please email <a href="mailto:info@amplified.com"><strong>info@amplified.com</strong></a> or use WhatsApp.';
+              return;
             }
+            status.className='form-status';status.textContent='';
             btn.textContent='Sending…';btn.disabled=true;
             fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}})
               .then(function(r){
-                if(r.ok){btn.textContent='Sent — we\'ll be in touch ✓';}
-                else{btn.textContent='Send the brief →';btn.disabled=false;alert('Something went wrong. Please email info@amplified.com directly.');}
+                if(r.ok){btn.textContent='Sent — we\'ll be in touch ✓';status.textContent='Thank you. Your project brief has been sent.';}
+                else{btn.textContent='Send the brief →';btn.disabled=false;status.className='form-status is-error';status.textContent='Something went wrong. Please email info@amplified.com directly.';}
               })
-              .catch(function(){btn.textContent='Send the brief →';btn.disabled=false;alert('Network error. Please email info@amplified.com directly.');});
+              .catch(function(){btn.textContent='Send the brief →';btn.disabled=false;status.className='form-status is-error';status.textContent='Network error. Please email info@amplified.com directly.';});
           });
         })();
         </script>
@@ -148,6 +154,7 @@
   </div>
 </section>
 
+</main>
 <script src="site.js"></script>
 </body>
 </html>

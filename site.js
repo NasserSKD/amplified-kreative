@@ -16,41 +16,42 @@
   };
 
   var SERVICES = [
-    ['Branding & Graphic Design', 'service-branding.html'],
-    ['Video Production', 'service-video.html'],
-    ['Website Design & Development', 'service-web.html'],
-    ['Digital Marketing', 'service-digital.html'],
-    ['Audio Production', 'service-audio.html'],
-    ['Photography', 'service-photography.html'],
-    ['Printing', 'service-printing.html']
+    ['Branding & Graphic Design', '/branding-graphic-design/'],
+    ['Video Production', '/video-production/'],
+    ['Website Design & Development', '/website-design-development/'],
+    ['Digital Marketing', '/digital-marketing/'],
+    ['Audio Production', '/audio-production/'],
+    ['Photography', '/photography/'],
+    ['Printing', '/printing-3/']
   ];
 
   var NAV = [
-    ['Work', 'work.html', 'work'],
-    ['Services', 'services.html', 'services'],
-    ['Pricing', 'pricing.html', 'pricing'],
-    ['About', 'about.html', 'about'],
-    ['Contact', 'contact.html', 'contact']
+    ['Work', '/portfolio/', 'work'],
+    ['Services', '/services/', 'services'],
+    ['Pricing', '/pricing/', 'pricing'],
+    ['About', '/about/', 'about'],
+    ['Contact', '/contact-us/', 'contact']
   ];
 
   /* ---------- NAV ---------- */
   function buildNav() {
     var links = NAV.map(function (n) {
       var active = n[2] === PAGE ? ' is-active' : '';
-      return '<a href="' + n[1] + '" class="' + active.trim() + '">' + n[0] + '</a>';
+      var current = active ? ' aria-current="page"' : '';
+      return '<a href="' + n[1] + '" class="' + active.trim() + '"' + current + '>' + n[0] + '</a>';
     }).join('');
 
     var html =
       '<div class="nav__inner">' +
-        '<a href="index.html" class="nav__logo" aria-label="Amplified home">' +
-          '<img src="assets/logo.webp" alt="Amplified Kreative">' +
+        '<a href="/" class="nav__logo" aria-label="Amplified Kreative home">' +
+          '<img src="assets/logo.webp" alt="" width="38" height="38">' +
           '<span>Amplified</span>' +
         '</a>' +
-        '<nav class="nav__links">' + links + '</nav>' +
+        '<nav class="nav__links" id="primary-navigation" aria-label="Primary navigation">' + links + '</nav>' +
         '<div class="nav__cta">' +
           '<a href="' + LINKS.calendly + '" target="_blank" rel="noopener" class="nav__book">Book a call</a>' +
-          '<a href="contact.html" class="btn btn--primary">Start a project <span class="arr">&#8599;</span></a>' +
-          '<button class="nav__burger" aria-label="Menu"><span></span><span></span><span></span></button>' +
+          '<a href="/contact-us/" class="btn btn--primary">Start a project <span class="arr">&#8599;</span></a>' +
+          '<button class="nav__burger" type="button" aria-label="Open menu" aria-controls="primary-navigation" aria-expanded="false"><span></span><span></span><span></span></button>' +
         '</div>' +
       '</div>';
 
@@ -59,10 +60,24 @@
     nav.innerHTML = html;
     document.body.insertBefore(nav, document.body.firstChild);
 
+    var skip = document.createElement('a');
+    skip.className = 'skip-link';
+    skip.href = '#main-content';
+    skip.textContent = 'Skip to content';
+    document.body.insertBefore(skip, nav);
+
     var burger = nav.querySelector('.nav__burger');
-    burger.addEventListener('click', function () { nav.classList.toggle('open'); });
+    burger.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
     nav.querySelectorAll('.nav__links a').forEach(function (a) {
-      a.addEventListener('click', function () { nav.classList.remove('open'); });
+      a.addEventListener('click', function () {
+        nav.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+        burger.setAttribute('aria-label', 'Open menu');
+      });
     });
   }
 
@@ -81,11 +96,11 @@
           '</div>' +
           '<div class="foot__col"><h5>Services</h5><ul>' + svcLinks + '</ul></div>' +
           '<div class="foot__col"><h5>Studio</h5><ul>' +
-            '<li><a href="work.html">Work</a></li>' +
-            '<li><a href="services.html">Services</a></li>' +
-            '<li><a href="pricing.html">Pricing</a></li>' +
-            '<li><a href="about.html">About us</a></li>' +
-            '<li><a href="contact.html">Contact</a></li>' +
+            '<li><a href="/portfolio/">Work</a></li>' +
+            '<li><a href="/services/">Services</a></li>' +
+            '<li><a href="/pricing/">Pricing</a></li>' +
+            '<li><a href="/about/">About us</a></li>' +
+            '<li><a href="/contact-us/">Contact</a></li>' +
             '<li><a href="' + LINKS.calendly + '" target="_blank" rel="noopener">Book a free call</a></li>' +
           '</ul></div>' +
           '<div class="foot__col"><h5>Connect</h5><ul>' +
@@ -157,24 +172,15 @@
       var q = item.querySelector('.faq__q');
       var a = item.querySelector('.faq__a');
       if (!q || !a) return;
+      var id = 'faq-answer-' + Math.random().toString(36).slice(2, 9);
+      a.id = id;
+      q.setAttribute('aria-controls', id);
+      q.setAttribute('aria-expanded', 'false');
       q.addEventListener('click', function () {
         var open = item.classList.contains('open');
         item.classList.toggle('open');
         a.style.maxHeight = open ? '0px' : a.scrollHeight + 'px';
-      });
-    });
-  }
-
-  /* ---------- chip toggles + fake form ---------- */
-  function initForms() {
-    document.querySelectorAll('.chip-toggle').forEach(function (c) {
-      c.addEventListener('click', function () { c.classList.toggle('on'); });
-    });
-    document.querySelectorAll('form[data-fake]').forEach(function (f) {
-      f.addEventListener('submit', function (e) {
-        e.preventDefault();
-        var btn = f.querySelector('[type=submit]');
-        if (btn) { btn.textContent = 'Sent — we\u2019ll be in touch \u2713'; btn.disabled = true; btn.style.opacity = '.9'; }
+        q.setAttribute('aria-expanded', String(!open));
       });
     });
   }
@@ -186,7 +192,6 @@
     buildNav();
     initReveal();
     initFaq();
-    initForms();
     buildFooter();
     buildContactActions();
   }
