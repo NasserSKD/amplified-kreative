@@ -1,0 +1,84 @@
+{
+  "source": "https://amplifiedkreative.com/",
+  "captured": "2026-06-08",
+  "policy": {
+    "include": "Legitimate Amplified agency pages and media used by or clearly relevant to those pages.",
+    "exclude": [
+      "Injected casino and gambling posts",
+      "Generic SaaS theme-demo articles and customer stories",
+      "Unused theme assets and duplicate WordPress derivatives"
+    ]
+  },
+  "pages": [
+    "home",
+    "about",
+    "services",
+    "branding-graphic-design",
+    "video-production",
+    "website-design-development",
+    "digital-marketing",
+    "audio-production",
+    "photography",
+    "printing-3",
+    "portfolio",
+    "pricing",
+    "contact-us",
+    "our-story",
+    "blog"
+  ],
+  "content": {
+    "services": 7,
+    "teamMembers": 9,
+    "testimonials": 5,
+    "portfolioVideos": 20,
+    "audioEmbeds": 2,
+    "portfolioImages": 26,
+    "clientLogosRepresented": 10
+  },
+  "externalMedia": {
+    "youtube": [
+      "WugcpUaCl-c",
+      "RgKYjMejVDY",
+      "JEotojhglDA",
+      "ut6aWaoh1Ls",
+      "akAUIM9SPd4",
+      "GYHbInojBhY",
+      "BHjXuue7VF4",
+      "nb8kNuO2z0o",
+      "jUwd4jBk554",
+      "YD0YtTvrrqE",
+      "JBaccAjLedU",
+      "fxOMetxz2JA",
+      "RZbBm38LMRI",
+      "mPKr05SiV64",
+      "Ru8DrnS__kc",
+      "WPpf2swFZnw",
+      "Dk4srw03ir8",
+      "EN0yXEqS4cw",
+      "f_Gvs7nSSEg",
+      "2qbEAdJyocc"
+    ],
+    "anchor": [
+      "Africana-Good-Food-e1ocrq0",
+      "era92-Creative-e1oeg0l"
+    ],
+    "other": [
+      "https://calendly.com/amplifiedkreative/30min",
+      "https://drive.google.com/file/d/1nY4zkYa1fVVmDqSUdGkVOQMrAPgUbotE/view?usp=drive_web"
+    ]
+  },
+  "legacyClaims": [
+    "Founded in 2009",
+    "13+ years of operation",
+    "287+ projects delivered",
+    "126+ clients served",
+    "50+ services offered",
+    "Clients saved over $25,000 a year",
+    "35% of proceeds support underserved communities and faith-based initiatives"
+  ],
+  "notes": [
+    "The legacy Blog page has no legitimate Amplified-authored article archive to migrate.",
+    "External YouTube and Anchor media remain embedded rather than downloaded.",
+    "WordPress page copy is represented in the new page family rather than preserved as raw builder markup."
+  ]
+}
