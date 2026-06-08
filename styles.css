@@ -149,7 +149,8 @@ h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1;letter-spacing
 .foot__bigword{font-family:var(--display);font-weight:800;letter-spacing:-.03em;line-height:.85;font-size:clamp(60px,11vw,150px);margin:48px 0 28px}
 .foot__bigword em{font-style:normal;color:var(--magenta)}
 .foot__heading{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--yellow);margin-bottom:18px;font-weight:700}
-.foot__col ul{list-style:none;display:flex;flex-direction:column;gap:11px;font-size:15.5px}
+.foot__col ul{list-style:none;display:flex;flex-direction:column;gap:0;font-size:15.5px}
+.foot__col ul a{display:block;padding:8px 0;min-height:44px;display:flex;align-items:center}
 .foot__brand p{color:rgba(255,255,255,.6);max-width:30ch;margin-top:14px;font-size:15px}
 .foot__mark{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:26px}
 .foot__mark .tri{width:0;height:0;border-left:9px solid transparent;border-right:9px solid transparent;border-bottom:16px solid var(--yellow)}
