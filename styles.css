@@ -294,9 +294,13 @@ h1,h2,h3,h4{font-family:var(--display);font-weight:700;line-height:1;letter-spac
 .pill-list .tag{font-size:13px;padding:9px 16px}
 
 /* clients strip */
-.client-logos{display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,56px);align-items:center;margin-top:32px}
-.client-logos img{height:36px;width:auto;filter:grayscale(1) opacity(.5);transition:.2s;max-width:120px;object-fit:contain}
+.client-logos{display:flex;flex-wrap:wrap;gap:clamp(34px,5vw,74px);align-items:center;margin-top:42px}
+.client-logos img{height:clamp(48px,5vw,68px);width:auto;filter:grayscale(1) opacity(.58);transition:.2s;max-width:clamp(150px,14vw,210px);object-fit:contain}
 .client-logos img:hover{filter:none;opacity:1}
+@media(max-width:600px){
+  .client-logos{display:grid;grid-template-columns:repeat(2,1fr);gap:30px 24px}
+  .client-logos img{height:48px;max-width:140px;justify-self:center}
+}
 
 /* social icon links */
 .soc-icons{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
