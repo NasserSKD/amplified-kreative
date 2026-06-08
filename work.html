@@ -21,6 +21,7 @@
 .port{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,30px)}
 .port .work-card{transition:opacity .3s}
 .port .work-card.hide{display:none}
+.filterable.hide{display:none}
 .port .work-card:nth-child(4n+1),.port .work-card:nth-child(4n+4){grid-column:span 1}
 @media(max-width:680px){.port{grid-template-columns:1fr}}
 .feat{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(24px,4vw,56px);align-items:center;background:var(--ink);color:#fff;border-radius:24px;overflow:hidden;padding:clamp(28px,3.5vw,56px)}
@@ -32,6 +33,17 @@
 .work-img{aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius)}
 .work-img img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
 .work-card:hover .work-img img{transform:scale(1.04)}
+.media-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin:clamp(48px,7vw,90px) 0 28px}
+.media-head h2{font-size:clamp(34px,5vw,68px);font-weight:800;line-height:.95}
+.video-card,.audio-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.video-frame{aspect-ratio:16/9;background:var(--ink)}
+.video-frame iframe,.audio-card iframe{width:100%;height:100%;border:0;display:block}
+.video-meta,.audio-meta{padding:18px}
+.video-meta h4,.audio-meta h4{font-size:clamp(18px,2vw,24px);font-weight:700}
+.video-meta .tag,.audio-meta .tag{margin-top:10px}
+.audio-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,30px)}
+.audio-card iframe{height:152px}
+@media(max-width:680px){.audio-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body data-page="work">
@@ -66,10 +78,26 @@
   </div>
 </section>
 
-<!-- grid -->
+<!-- complete legacy portfolio -->
 <section class="section section--tight">
   <div class="wrap">
+    <div class="media-head reveal">
+      <div><span class="eyebrow">Graphic design, branding &amp; print</span><h2 style="margin-top:16px">Image portfolio.</h2></div>
+      <span class="tag">26 projects</span>
+    </div>
     <div class="port reveal" id="port"></div>
+
+    <div class="media-head reveal">
+      <div><span class="eyebrow">Film, commercials &amp; animation</span><h2 style="margin-top:16px">Videography.</h2></div>
+      <span class="tag">20 videos</span>
+    </div>
+    <div class="port reveal" id="videoPort"></div>
+
+    <div class="media-head reveal">
+      <div><span class="eyebrow">Radio &amp; corporate sound</span><h2 style="margin-top:16px">Audio work.</h2></div>
+      <span class="tag">2 productions</span>
+    </div>
+    <div class="audio-grid reveal" id="audioPort"></div>
   </div>
 </section>
 
@@ -83,43 +111,37 @@
   </div>
 </section>
 
+<script src="content-data.js"></script>
 <script src="site.js"></script>
 <script>
 (function(){
-  var CATS=['All','Branding','Video','Web','Marketing','Audio','Photography','Print'];
-  // [name, description, category, imgSrc, imgAlt]
-  var WORK=[
-    ['Social Media Campaigns','Always-on content across platforms that built consistent brand presence.','Marketing','assets/portfolio/social-media-1.jpeg','Social media campaign graphics'],
-    ['NGO Forum','Publication design and visual identity for an international humanitarian platform.','Branding','assets/portfolio/ngo-forum.jpeg','NGO Forum publication'],
-    ['Humanitarian Platform','Brand identity and graphic design for a leading NGO platform.','Branding','assets/portfolio/humanitarian-platform.jpeg','Humanitarian Platform branding'],
-    ['Vehicle Branding','Full vehicle wrap design and execution for a corporate fleet.','Print','assets/portfolio/main-car.jpeg','Corporate vehicle branding'],
-    ['Legal Framework Report','Typeset and designed publication for policy and legal documentation.','Print','assets/portfolio/legal-framework.jpeg','Legal framework report design'],
-    ['Logo Design Suite','Comprehensive logo systems crafted for multiple brand identities.','Branding','assets/portfolio/logo-1.jpeg','Logo design collection'],
-    ['Embossed Brand Identity','Premium embossed branding materials for a luxury client.','Branding','assets/portfolio/logo-embossed.jpeg','Embossed brand identity'],
-    ['Branded Merchandise','Apparel and merchandise design including sweater mockups.','Print','assets/portfolio/sweater-mockup.jpeg','Branded sweater and merchandise'],
-    ['Social Content Production','Content creation and visual design for social media growth campaigns.','Marketing','assets/portfolio/social-media-2.jpeg','Social media content design'],
-    ['Back Car Branding','Rear vehicle branding and livery design for fleet deployment.','Print','assets/portfolio/back-car.jpeg','Rear vehicle branding'],
-    ['Brand Identity Design','Full-service brand identity including logo, colours and typography.','Branding','assets/portfolio/graphic-design-left.jpeg','Brand identity design'],
-    ['Social Campaigns Vol.3','Multi-format social media content designed for maximum engagement.','Marketing','assets/portfolio/social-media-3.jpeg','Social media campaign vol. 3']
-  ];
+  var data=window.AMP_CONTENT;
+  var CATS=['All','Branding','Digital Marketing','Print','Video','Audio'];
   // filters
   document.getElementById('filters').innerHTML=CATS.map(function(c,i){
     return '<button class="filter'+(i===0?' on':'')+'" data-cat="'+c+'">'+c+'</button>';
   }).join('');
-  // grid
-  document.getElementById('port').innerHTML=WORK.map(function(w){
-    return '<a class="work-card" data-cat="'+w[2]+'" href="contact.html">'+
-      '<div class="work-img"><img src="'+w[3]+'" alt="'+w[4]+'" loading="lazy"></div>'+
-      '<div class="work-card__meta"><h4>'+w[0]+'</h4><span class="tag">'+w[2]+'</span></div>'+
-      '<p>'+w[1]+'</p></a>';
+  document.getElementById('port').innerHTML=data.images.map(function(w){
+    return '<article class="work-card filterable" data-cat="'+w[1]+'">'+
+      '<div class="work-img"><img src="'+w[2]+'" alt="'+w[0]+' by Amplified Kreative" loading="lazy"></div>'+
+      '<div class="work-card__meta"><h4>'+w[0]+'</h4><span class="tag">'+w[1]+'</span></div></article>';
   }).join('');
-  // filtering
+  document.getElementById('videoPort').innerHTML=data.videos.map(function(v,i){
+    return '<article class="video-card filterable" data-cat="Video">'+
+      '<div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/'+v[2]+'" title="'+v[0]+' '+(i+1)+' by Amplified Kreative" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>'+
+      '<div class="video-meta"><h4>'+v[0]+'</h4><span class="tag">'+v[1]+'</span></div></article>';
+  }).join('');
+  document.getElementById('audioPort').innerHTML=data.audio.map(function(a){
+    return '<article class="audio-card filterable" data-cat="Audio">'+
+      '<iframe src="'+a[2]+'" title="'+a[0]+' audio production by Amplified Kreative" loading="lazy"></iframe>'+
+      '<div class="audio-meta"><h4>'+a[0]+'</h4><span class="tag">'+a[1]+'</span></div></article>';
+  }).join('');
   document.querySelectorAll('.filter').forEach(function(f){
     f.addEventListener('click',function(){
       document.querySelectorAll('.filter').forEach(function(x){x.classList.remove('on')});
       f.classList.add('on');
       var cat=f.getAttribute('data-cat');
-      document.querySelectorAll('#port .work-card').forEach(function(card){
+      document.querySelectorAll('.filterable').forEach(function(card){
         var show=cat==='All'||card.getAttribute('data-cat')===cat;
         card.classList.toggle('hide',!show);
       });
