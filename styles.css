@@ -65,7 +65,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
   letter-spacing:-.03em;
   text-wrap:balance;
 }
-h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1;letter-spacing:-.02em}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1;letter-spacing:-.02em;text-wrap:balance}
 .eyebrow{
   font-family:var(--mono);
   font-size:13px;
