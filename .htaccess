@@ -1,0 +1,48 @@
+Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+  RewriteRule ^index\.html$ / [R=301,L]
+  RewriteRule ^services\.html$ /services/ [R=301,L]
+  RewriteRule ^pricing\.html$ /pricing/ [R=301,L]
+  RewriteRule ^about\.html$ /about/ [R=301,L]
+  RewriteRule ^work\.html$ /portfolio/ [R=301,L]
+  RewriteRule ^contact\.html$ /contact-us/ [R=301,L]
+  RewriteRule ^service-branding\.html$ /branding-graphic-design/ [R=301,L]
+  RewriteRule ^service-video\.html$ /video-production/ [R=301,L]
+  RewriteRule ^service-web\.html$ /website-design-development/ [R=301,L]
+  RewriteRule ^service-digital\.html$ /digital-marketing/ [R=301,L]
+  RewriteRule ^service-audio\.html$ /audio-production/ [R=301,L]
+  RewriteRule ^service-photography\.html$ /photography/ [R=301,L]
+  RewriteRule ^service-printing\.html$ /printing-3/ [R=301,L]
+
+  RewriteRule ^our-story/?$ /about/ [R=301,L]
+  RewriteRule ^blog/?$ /about/ [R=301,L]
+
+  RewriteRule ^services/?$ /services.html [END]
+  RewriteRule ^pricing/?$ /pricing.html [END]
+  RewriteRule ^about/?$ /about.html [END]
+  RewriteRule ^portfolio/?$ /work.html [END]
+  RewriteRule ^contact-us/?$ /contact.html [END]
+  RewriteRule ^branding-graphic-design/?$ /service-branding.html [END]
+  RewriteRule ^video-production/?$ /service-video.html [END]
+  RewriteRule ^website-design-development/?$ /service-web.html [END]
+  RewriteRule ^digital-marketing/?$ /service-digital.html [END]
+  RewriteRule ^audio-production/?$ /service-audio.html [END]
+  RewriteRule ^photography/?$ /service-photography.html [END]
+  RewriteRule ^printing-3/?$ /service-printing.html [END]
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  <FilesMatch "\.(?:jpg|jpeg|png|webp|svg|css|js)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>

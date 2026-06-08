@@ -1,0 +1,52 @@
+{
+  "cleanUrls": false,
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/services.html", "destination": "/services/", "permanent": true },
+    { "source": "/pricing.html", "destination": "/pricing/", "permanent": true },
+    { "source": "/about.html", "destination": "/about/", "permanent": true },
+    { "source": "/work.html", "destination": "/portfolio/", "permanent": true },
+    { "source": "/contact.html", "destination": "/contact-us/", "permanent": true },
+    { "source": "/service-branding.html", "destination": "/branding-graphic-design/", "permanent": true },
+    { "source": "/service-video.html", "destination": "/video-production/", "permanent": true },
+    { "source": "/service-web.html", "destination": "/website-design-development/", "permanent": true },
+    { "source": "/service-digital.html", "destination": "/digital-marketing/", "permanent": true },
+    { "source": "/service-audio.html", "destination": "/audio-production/", "permanent": true },
+    { "source": "/service-photography.html", "destination": "/photography/", "permanent": true },
+    { "source": "/service-printing.html", "destination": "/printing-3/", "permanent": true },
+    { "source": "/our-story/", "destination": "/about/", "permanent": true },
+    { "source": "/blog/", "destination": "/about/", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/services/", "destination": "/services.html" },
+    { "source": "/pricing/", "destination": "/pricing.html" },
+    { "source": "/about/", "destination": "/about.html" },
+    { "source": "/portfolio/", "destination": "/work.html" },
+    { "source": "/contact-us/", "destination": "/contact.html" },
+    { "source": "/branding-graphic-design/", "destination": "/service-branding.html" },
+    { "source": "/video-production/", "destination": "/service-video.html" },
+    { "source": "/website-design-development/", "destination": "/service-web.html" },
+    { "source": "/digital-marketing/", "destination": "/service-digital.html" },
+    { "source": "/audio-production/", "destination": "/service-audio.html" },
+    { "source": "/photography/", "destination": "/service-photography.html" },
+    { "source": "/printing-3/", "destination": "/service-printing.html" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ]
+}
