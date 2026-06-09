@@ -10,7 +10,7 @@
     phone: 'tel:+256702366511',
     whatsapp: 'https://wa.me/256702366511?text=Hello%20Amplified%20Kreative%2C%20I%27d%20like%20to%20discuss%20a%20creative%20project.',
     calendly: 'https://calendly.com/amplifiedkreative/30min',
-    instagram: 'https://www.instagram.com/ug_amplified/',
+    instagram: 'https://www.instagram.com/amplified_kreative/',
     twitter: 'https://twitter.com/amplified_ug',
     youtube: 'https://youtube.com/channel/UC7o0IxsaUdEou6fdTFi2HIw'
   };
